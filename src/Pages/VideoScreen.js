@@ -13,6 +13,8 @@ const VideoScreen = () => {
 		<div>
 			<Header />
 			<MainWrapper>
+				<VideoInfo position={true} />
+
 				<VideoRecommendedWrapper>
 					<Player />
 					<RecommendedWrapper>
@@ -21,6 +23,8 @@ const VideoScreen = () => {
 						<Recommended name={"rec3"} />
 					</RecommendedWrapper>
 				</VideoRecommendedWrapper>
+
+				<VideoInfo position={false} />
 			</MainWrapper>
 		</div>
 	);
