@@ -1,5 +1,5 @@
-import Form from "../Components/LogIn/Form";
-import Header from "../Components/Shared/Header";
+import Form from "../../Components/LogIn/Form";
+import Header from "../../Components/Shared/Header";
 
 const LogIn = () => {
 	return (
