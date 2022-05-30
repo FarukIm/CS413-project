@@ -1,13 +1,10 @@
-import React from "react";
-
-const Comments = () => {
+const Comments = ({ content }) => {
 	return (
-		<div
-			id='comments'
-			className='w-full h-20 md:h-60  overflow-visible p-2 border-2 border-black'
-		>
-			Comments
-		</div>
+		<>
+			<div className='w-full h-20 border-2 border-black mx-2 my-4 p-3'>
+				{content}
+			</div>
+		</>
 	);
 };
 

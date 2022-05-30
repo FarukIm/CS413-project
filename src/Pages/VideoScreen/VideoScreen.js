@@ -1,10 +1,10 @@
 //Components
-import Header from "../../Components/Shared/Header";
+import Header from "../../Layout/Header";
 import Player from "../../Components/VideoScreen/Player";
 import VideoInfo from "../../Components/VideoScreen/VideoInfo";
 
 //Wrappers
-import MainWrapper from "../../Components/Shared/MainWrapper";
+import MainWrapper from "../../Layout/MainWrapper";
 import VideoRecommendedWrapper from "../../Components/VideoScreen/VideoRecommendedWrapper";
 import RecommendedWrapper from "../../Components/VideoScreen/RecommendedWrapper";
 import CommentsWrapper from "../../Components/VideoScreen/CommentsWrapper";

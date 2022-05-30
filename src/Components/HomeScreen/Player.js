@@ -4,7 +4,7 @@ const Player = () => {
 	return (
 		<div
 			id='player'
-			className='h-64 w-11/12 p-2 mb-2 text-gray-800 border-2 border-black'
+			className='h-96 w-full p-2 my-4 text-gray-800 border-2 border-black'
 		>
 			#Player
 		</div>

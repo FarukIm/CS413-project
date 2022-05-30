@@ -11,7 +11,7 @@ const Form = () => {
 					id='username'
 					type='text'
 					placeholder='username123'
-					className='mb-2 h-10'
+					className='mb-2 h-10 pl-4'
 				/>
 				<label for='password' className='text-gray-600 font-bold mb-1'>
 					Password:
@@ -20,7 +20,7 @@ const Form = () => {
 					id='password'
 					type='password'
 					placeholder='password'
-					className='mb-4 h-10'
+					className='mb-4 h-10 pl-4'
 				/>
 
 				<div className='flex items-center space-x-12 justify-center mt-5'>
