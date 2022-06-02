@@ -10,17 +10,20 @@ import RecommendedWrapper from "../../Components/VideoScreen/RecommendedWrapper"
 import CommentsWrapper from "../../Components/VideoScreen/CommentsWrapper";
 
 //data
-import getData from "./data/data";
+import { useQuery, fetcher } from "../../lib/data";
 
 //ui
 import { commentToComponent, recToComponent } from "./ui/dataToComponent";
 
+//URLs
+const recURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/recommendations";
+const commentsURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/comments";
 const VideoScreen = () => {
-	const data = getData();
-	const { comments, rec } = data;
+	const { data: rec } = useQuery(fetcher(recURL), { init: [] });
+	const { data: comments } = useQuery(fetcher(commentsURL), { init: [] });
 
 	return (
-		<div>
+		<div className='bg-gray-700'>
 			<Header />
 			<MainWrapper>
 				<VideoInfo position={true} />

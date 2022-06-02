@@ -3,7 +3,6 @@ import Header from "../../Layout/Header";
 import Player from "../../Components/HomeScreen/Player";
 import Menu from "../../Components/HomeScreen/Menu";
 import PlayerInfo from "../../Components/HomeScreen/PlayerInfo";
-import Comments from "../../Components/HomeScreen/Comments";
 
 //Wrappers
 import MainWrapper from "../../Layout/MainWrapper";
@@ -15,42 +14,15 @@ import CommentsWrapper from "../../Components/HomeScreen/CommentsWrapper";
 import { recToComponent, commentToComponent } from "./ui/dataToComponent";
 
 //Data
-import { useQuery } from "../../lib/data";
+import { useQuery, fetcher } from "../../lib/data";
+
+//URLs
+const recsURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/recommendations";
+const commentsURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/comments";
 
 const HomeScreen = () => {
-	const { data: rec } = useQuery(
-		{
-			fetcher: async () => {
-				const response = await fetch(
-					"https://6294acf6a7203b3ed06e7dcb.mockapi.io/recommendations",
-					{
-						method: "GET",
-					}
-				);
-
-				const rec_ = await response.json();
-				return rec_;
-			},
-		},
-		{ init: [] }
-	);
-
-	const { data: comments } = useQuery(
-		{
-			fetcher: async () => {
-				const response = await fetch(
-					"https://6294acf6a7203b3ed06e7dcb.mockapi.io/comments",
-					{
-						method: "GET",
-					}
-				);
-
-				const comments_ = await response.json();
-				return comments_;
-			},
-		},
-		{ init: [] }
-	);
+	const { data: rec } = useQuery(fetcher(recsURL), { init: [] });
+	const { data: comments } = useQuery(fetcher(commentsURL), { init: [] });
 
 	return (
 		<div>
