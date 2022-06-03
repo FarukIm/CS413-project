@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //Components
-import Form from "../../Components/Form";
+import LoginForm from "../../Components/LoginForm";
 import Header from "../../Layout/Header";
 
 const LogIn = () => {
 	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-
+	const loginApi = "tralala";
 	const onFormSubmit = async (e) => {
 		try {
 			e.preventDefault();
@@ -35,7 +35,7 @@ const LogIn = () => {
 		<>
 			<Header />
 			<div className='md:w-4/12 w-6/12 h-100 mx-auto mt-12'>
-				<Form />
+				<LoginForm />
 			</div>
 		</>
 	);
