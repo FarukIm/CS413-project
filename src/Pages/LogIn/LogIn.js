@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //Components
-import Form from "../../Components/LogIn/Form";
+import Form from "../../Components/Form";
 import Header from "../../Layout/Header";
 
 const LogIn = () => {

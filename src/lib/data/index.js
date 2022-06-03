@@ -10,9 +10,9 @@ export const useQuery = ({ fetcher, init = [] }) => {
 		try {
 			const data_ = await fetcher();
 			setData(data_);
-		} catch (error) {
+		} catch (e) {
 			setIsError(true);
-			setError(error);
+			setError(e);
 		} finally {
 			setLoading(false);
 		}

@@ -1,14 +1,14 @@
 //Components
 import Header from "../../Layout/Header";
-import Player from "../../Components/HomeScreen/Player";
-import Menu from "../../Components/HomeScreen/Menu";
-import PlayerInfo from "../../Components/HomeScreen/PlayerInfo";
+import HomePlayer from "../../Components/HomePlayer";
+import Menu from "../../Components/Menu";
+import PlayerInfo from "../../Components/PlayerInfo";
 
 //Wrappers
 import MainWrapper from "../../Layout/MainWrapper";
-import PlayerWrapper from "../../Components/HomeScreen/PlayerWrapper";
-import RecommendedWrapper from "../../Components/HomeScreen/RecommendedWrapper";
-import CommentsWrapper from "../../Components/HomeScreen/CommentsWrapper";
+import PlayerWrapper from "./wrappers/PlayerWrapper";
+import RecommendedWrapper from "./wrappers/RecommendedWrapper";
+import CommentsWrapper from "./wrappers/CommentsWrapper";
 
 //UI
 import { recToComponent, commentToComponent } from "./ui/dataToComponent";
@@ -33,7 +33,7 @@ const HomeScreen = () => {
 			<MainWrapper>
 				<Menu />
 				<PlayerWrapper>
-					<Player />
+					<HomePlayer />
 					<PlayerInfo />
 					<CommentsWrapper>{comments.map(commentToComponent)}</CommentsWrapper>
 				</PlayerWrapper>
