@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useQuery = ({ fetcherFunc, init = [] }) => {
+export const useQuery = ({ fetcher, init = [] }) => {
 	const [data, setData] = useState(init);
 	const [loading, setLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
@@ -8,11 +8,11 @@ export const useQuery = ({ fetcherFunc, init = [] }) => {
 
 	const effect = async () => {
 		try {
-			const data_ = await fetcherFunc();
+			const data_ = await fetcher();
 			setData(data_);
-		} catch (e) {
+		} catch (error) {
 			setIsError(true);
-			setError(e);
+			setError(error);
 		} finally {
 			setLoading(false);
 		}
@@ -25,11 +25,18 @@ export const useQuery = ({ fetcherFunc, init = [] }) => {
 	return { data, loading, isError, error };
 };
 
-export async function fetcher(getURL) {
-	const response = await fetch(getURL, {
-		method: "GET",
-	});
+export const useQueryURL = ({ getURL, method, init = [] }) => {
+	return useQuery({
+		fetcher: async () => {
+			try {
+				const response = await fetch(getURL, { method });
+				const data_ = await response.json();
+				return data_;
+			} catch (error) {
+				console.log("[fetcher]", { error });
+			}
+		},
 
-	const data_ = await response.json();
-	return data_;
-}
+		init,
+	});
+};

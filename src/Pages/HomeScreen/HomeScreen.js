@@ -14,15 +14,18 @@ import CommentsWrapper from "../../Components/HomeScreen/CommentsWrapper";
 import { recToComponent, commentToComponent } from "./ui/dataToComponent";
 
 //Data
-import { useQuery, fetcher } from "../../lib/data";
+import { useQueryURL } from "../../lib/data";
 
 //URLs
 const recsURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/recommendations";
 const commentsURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/comments";
 
 const HomeScreen = () => {
-	const { data: rec } = useQuery(fetcher(recsURL), { init: [] });
-	const { data: comments } = useQuery(fetcher(commentsURL), { init: [] });
+	const { data: rec } = useQueryURL({ getURL: recsURL, method: "GET" });
+	const { data: comments } = useQueryURL({
+		getURL: commentsURL,
+		method: "GET",
+	});
 
 	return (
 		<div>
