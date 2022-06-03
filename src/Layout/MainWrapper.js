@@ -6,7 +6,7 @@ const MainWrapper = ({ children }) => {
 			<div
 				id='main'
 				className='flex flex-col md:flex-row md:flex-wrap 
-                justify-start p-0 md:p-1 w-full min-h-screen'
+                justify-start p-0 md:p-1 mt-10 w-full min-h-screen'
 			>
 				{children}
 			</div>

@@ -3,6 +3,7 @@ import Header from "../../Layout/Header";
 import VideoPlayer from "../../Components/VideoPlayer";
 import VideoInfo from "../../Components/VideoInfo";
 import VideoComments from "../../Components/VideoComments";
+import LikeButton from "../../Components/LikeButton";
 
 //Wrappers
 import MainWrapper from "../../Layout/MainWrapper";
@@ -16,6 +17,7 @@ import { useQueryURL } from "../../lib/data";
 //ui
 import { commentToComponent, recToComponent } from "./ui/dataToComponent";
 import Recommended from "../../Components/Recommended";
+import VideoPlayerWrapper from "./wrappers/VideoPlayerWrapper";
 
 //URLs
 const recURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/recommendations";
@@ -35,17 +37,20 @@ const VideoScreen = () => {
 		<div className='bg-gray-700'>
 			<Header />
 			<MainWrapper>
-				<VideoInfo position={true} />
+				<VideoInfo position={true} title='Infographic Example Video' />
 
 				<VideoRecommendedWrapper>
-					<VideoPlayer />
+					<VideoPlayerWrapper>
+						<VideoPlayer />
+						<LikeButton />
+					</VideoPlayerWrapper>
 					<RecommendedWrapper>
 						{loadingRec && <Recommended content='Loading Recommended...' />}
 						{!loadingRec && rec.map(recToComponent)}
 					</RecommendedWrapper>
 				</VideoRecommendedWrapper>
 
-				<VideoInfo position={false} />
+				<VideoInfo position={false} title='Infographic Example Video' />
 				<CommentsWrapper>
 					{loadingComment && <VideoComments content='Loading Comments...' />}
 
