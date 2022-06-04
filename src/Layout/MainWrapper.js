@@ -2,7 +2,7 @@ import React from "react";
 
 const MainWrapper = ({ children }) => {
 	return (
-		<div className='container mx-auto text-white'>
+		<div className='container mx-auto  text-white'>
 			<div
 				id='main'
 				className='flex flex-col md:flex-row md:flex-wrap 

@@ -13,6 +13,7 @@ import CommentsWrapper from "./wrappers/CommentsWrapper";
 
 //data
 import { useQueryURL } from "../../lib/data";
+import { getData } from "./data";
 
 //ui
 import { commentToComponent, recToComponent } from "./ui/dataToComponent";
@@ -22,6 +23,7 @@ import VideoPlayerWrapper from "./wrappers/VideoPlayerWrapper";
 //URLs
 const recURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/recommendations";
 const commentsURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/comments";
+const likeURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/like/1";
 
 const VideoScreen = () => {
 	const { data: rec, loading: loadingRec } = useQueryURL({
@@ -32,6 +34,12 @@ const VideoScreen = () => {
 		getURL: commentsURL,
 		method: "GET",
 	});
+	// const { data: like, loading: loadingLike } = useQueryURL({
+	// 	getURL: likeURL,
+	// 	method: "GET",
+	// });
+	// console.log(like.isLiked);
+	const like = getData();
 
 	return (
 		<div className='bg-gray-700'>
@@ -42,7 +50,7 @@ const VideoScreen = () => {
 				<VideoRecommendedWrapper>
 					<VideoPlayerWrapper>
 						<VideoPlayer />
-						<LikeButton />
+						<LikeButton isLiked={like.isLiked} />
 					</VideoPlayerWrapper>
 					<RecommendedWrapper>
 						{loadingRec && <Recommended content='Loading Recommended...' />}

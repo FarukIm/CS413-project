@@ -1,10 +1,5 @@
-import HomeComments from "../../../Components/HomeComments";
-import Recommended from "../../../Components/Recommended";
+import HomeRecommended from "../../../Components/HomeRecommended";
 
 export const recToComponent = (rec) => {
-	return <Recommended name={rec.content} />;
-};
-
-export const commentToComponent = (comment) => {
-	return <HomeComments content={comment.content} />;
+	return <HomeRecommended title={rec.content} thumbnail={rec.thumbnail} />;
 };
