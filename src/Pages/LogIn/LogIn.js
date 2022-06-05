@@ -20,9 +20,10 @@ const LogIn = () => {
 		navigate,
 	});
 	return (
-		<>
+		<div className='bg-gray-700 h-screen w-full pt-20'>
 			<Header />
-			<div className='md:w-4/12 w-6/12 h-100 mx-auto mt-36'>
+
+			<div className='md:w-4/12 w-6/12 h-100 mx-auto mt-10'>
 				<LoginForm onFormSubmit={onFormSubmit}>
 					<FormInput
 						field='username'
@@ -34,7 +35,7 @@ const LogIn = () => {
 					/>
 				</LoginForm>
 			</div>
-		</>
+		</div>
 	);
 };
 

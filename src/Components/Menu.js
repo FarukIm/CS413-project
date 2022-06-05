@@ -1,19 +1,31 @@
-import React from "react";
+import { useState } from "react";
 
 const Menu = () => {
+	const [isExpanded, setIsExpanded] = useState(false);
+
 	return (
 		<div
 			id='menu'
-			className='w-1/6 max-w-48 md:h-screen border bg-cyan-600 md:block md:flex 
-			border-2 border-black
+			className='w-48 md:h-screen border bg-cyan-600 md:block md:flex 
+			border-2 border-black 
 			fixed left-0 mt-2'
 		>
 			<div
-				className='border-b-2 border-black 
-			text-center md:text-start
-			md:pl-4'
+				className='flex flex-col align-left
+							text-left text-md 
+							md:pl-4 min-w-36'
 			>
-				Menu
+				<div className='text-center text-xl border-black border-b-2'>
+					<button onClick={() => setIsExpanded(!isExpanded)}>Menu</button>
+				</div>
+				<div
+					className={`${isExpanded ? "block" : "hidden md:block"} pt-2 pl-4`}
+				>
+					<li>Favourites</li>
+					<li>Library</li>
+					<li>Settings</li>
+					<li>Preferences</li>
+				</div>
 			</div>
 		</div>
 	);
