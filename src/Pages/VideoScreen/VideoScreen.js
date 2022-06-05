@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 //Components
 import Header from "../../Layout/Header";
 import VideoPlayer from "../../Components/VideoPlayer";
@@ -20,6 +22,9 @@ import { commentToComponent, recToComponent } from "./ui/dataToComponent";
 import Recommended from "../../Components/Recommended";
 import VideoPlayerWrapper from "./wrappers/VideoPlayerWrapper";
 
+//functions
+import { isLoggedIn } from "../../lib/functions";
+
 //URLs
 const recURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/recommendations";
 const commentsURL = "https://6294acf6a7203b3ed06e7dcb.mockapi.io/comments";
@@ -34,39 +39,46 @@ const VideoScreen = () => {
 		getURL: commentsURL,
 		method: "GET",
 	});
-	// const { data: like, loading: loadingLike } = useQueryURL({
-	// 	getURL: likeURL,
-	// 	method: "GET",
-	// });
-	// console.log(like.isLiked);
+
 	const like = getData();
+	if (isLoggedIn) {
+		return (
+			<div className='bg-gray-700'>
+				<Header />
+				<MainWrapper>
+					<VideoInfo position={true} title='Infographic Example Video' />
 
-	return (
-		<div className='bg-gray-700'>
-			<Header />
-			<MainWrapper>
-				<VideoInfo position={true} title='Infographic Example Video' />
+					<VideoRecommendedWrapper>
+						<VideoPlayerWrapper>
+							<VideoPlayer />
+							<LikeButton isLiked={like.isLiked} />
+						</VideoPlayerWrapper>
+						<RecommendedWrapper>
+							{loadingRec && <Recommended content='Loading Recommended...' />}
+							{!loadingRec && rec.map(recToComponent)}
+						</RecommendedWrapper>
+					</VideoRecommendedWrapper>
 
-				<VideoRecommendedWrapper>
-					<VideoPlayerWrapper>
-						<VideoPlayer />
-						<LikeButton isLiked={like.isLiked} />
-					</VideoPlayerWrapper>
-					<RecommendedWrapper>
-						{loadingRec && <Recommended content='Loading Recommended...' />}
-						{!loadingRec && rec.map(recToComponent)}
-					</RecommendedWrapper>
-				</VideoRecommendedWrapper>
+					<VideoInfo position={false} title='Infographic Example Video' />
+					<CommentsWrapper>
+						{loadingComment && <VideoComments content='Loading Comments...' />}
 
-				<VideoInfo position={false} title='Infographic Example Video' />
-				<CommentsWrapper>
-					{loadingComment && <VideoComments content='Loading Comments...' />}
-
-					{!loadingComment && comments.map(commentToComponent)}
-				</CommentsWrapper>
-			</MainWrapper>
-		</div>
-	);
+						{!loadingComment && comments.map(commentToComponent)}
+					</CommentsWrapper>
+				</MainWrapper>
+			</div>
+		);
+	} else {
+		return (
+			<div>
+				You are not logged in, go to{" "}
+				<Link to='/login' className='text-cyan-300'>
+					{" "}
+					login{" "}
+				</Link>
+			</div>
+		);
+	}
 };
 
 export default VideoScreen;
