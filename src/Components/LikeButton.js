@@ -13,7 +13,7 @@ const LikeButton = ({ isLiked, loading }) => {
 				shadow-sm shadow-black 
 				w-16 mb-4 p-1 ${like ? "bg-cyan-800" : "bg-gray-700"}`}
 			>
-				{like ? "YES" : "NO"}
+				Like
 			</button>
 		</div>
 	);
