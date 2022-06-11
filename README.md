@@ -2,6 +2,8 @@
 
 This is my project for the CS413 course at IUS
 
-## Some notes
+# Screenshots
 
-Project is finished up, to see the webpages go to the screenshots folder in the repository.
+![alt text](https://https://github.com/FarukIm/CS413-project/blob/master/screenshots/login-screen.png?raw=true)
+![alt text](https://https://github.com/FarukIm/CS413-project/blob/master/screenshots/home-screen.png?raw=true)
+![alt text](https://https://github.com/FarukIm/CS413-project/blob/master/screenshots/video-screen.png?raw=true)
