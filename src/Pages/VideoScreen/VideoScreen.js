@@ -41,7 +41,7 @@ const VideoScreen = () => {
 	});
 
 	const like = getData();
-	if (isLoggedIn) {
+	if (isLoggedIn()) {
 		return (
 			<div className='bg-gray-700'>
 				<Header />
